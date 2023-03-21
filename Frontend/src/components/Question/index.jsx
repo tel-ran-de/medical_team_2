@@ -5,7 +5,7 @@ import s from './index.module.css';
 
 export default function Question() {
 
-  let [questionNum, setQuestionNum] = useState(32);
+  let [questionNum, setQuestionNum] = useState(0);
   
   let questionNumIncr = (event) => {
     if (questionNum < 35) {
