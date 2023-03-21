@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import HumanBody from '../../components/HumanBody';
+import s from './index.module.css';
 
 export default function SelectProblemPage() {
   return (
-    <div>
+    <div className={s.human_block}>
+      <HumanBody/>
       <Link to='/question'>
-        <button>Human body</button> 
+        <button>Next</button> 
       </Link>
     </div>
   )
