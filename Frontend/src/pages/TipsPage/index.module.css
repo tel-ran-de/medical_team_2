@@ -1,0 +1,19 @@
+.score, .bmi {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tips_title {
+    margin: 30px auto;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(11, 86, 207); 
+}
+
+
+
+
+

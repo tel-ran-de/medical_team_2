@@ -1,0 +1,63 @@
+.question_block {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+}
+
+.buttons_container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.buttons_container button {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 15px;
+    border: 1px solid grey;
+    cursor: pointer;
+}
+
+.btn_go_back {
+    margin: 20px;
+    padding: 15px;
+    width: 120px;
+    height: 30px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: iris;
+    border: 1px solid rgb(48, 48, 207);
+    color: rgb(23, 23, 59);
+    font-size: 15px;
+    font-weight: 500; 
+}
+
+.buttons_container :nth-child(1) {
+    background-color: green;
+}
+.buttons_container :nth-child(2) {
+    background-color: lightgreen;
+}
+
+.buttons_container :nth-child(3) {
+    background-color: yellow;
+}
+
+.buttons_container :nth-child(4) {
+    background-color: orange;
+}
+
+.buttons_container :nth-child(5) {
+    background-color: red;
+}
+
+.buttons_container :nth-child(6) {
+    background-color: brown;
+}
+ 

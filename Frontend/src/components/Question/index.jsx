@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { questions } from './data/questions.js';
 import s from './index.module.css';
+import { BiArrowBack } from 'react-icons/bi'
+
+
 
 export default function Question() {
 
@@ -34,7 +37,7 @@ export default function Question() {
   console.log(questionNum)
 
   return (
-    <div>
+    <div className={s.question_block}>
       {
         questions[questionNum].section_title 
         ? <p>{questions[questionNum].section_title}</p> 
@@ -53,7 +56,7 @@ export default function Question() {
       {
         questionNum === 0 
         ? <Link to='/select_problem'> <button>return to problem choose</button> </Link>
-        :<button onClick={questionNumDecr}>go back</button>
+        :<button onClick={questionNumDecr} className={s.btn_go_back}><BiArrowBack /> Go back</button>
       }
 
       {

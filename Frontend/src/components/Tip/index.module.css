@@ -1,0 +1,38 @@
+.therapy_block {
+    margin: 20px 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border-bottom: 2px solid blue;
+}
+
+.therapy_block div {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.feedback_block {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.feedback_block button {
+    border: 1px solid blue;
+    border-radius: 8px;
+    padding: 10px;
+    color: blue;
+}
+
+.feedback_block :nth-child(2) {
+    background: linear-gradient(to right,rgb(214, 44, 149), blue);
+    color: aliceblue;
+}
+
