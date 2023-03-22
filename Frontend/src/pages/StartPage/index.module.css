@@ -1,28 +1,25 @@
 .start_page {
+    margin-top: 30px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    /* background-image: url('../../media/fon4.jpg'); */
 }
 
-.welcome_start {
-    margin-top: 80px;
-    padding: 5px;
+p {
     text-align: center;
-    text-shadow: 2px 2px 1px  rgb(75, 75, 212);
-    font-size: 40px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700; 
     font-style: italic;
-    float: right;
-    color: rgb(14, 2, 39);
-    
-    position: absolute;
+    color: rgb(157, 23, 99);
 }
 
 a {
     text-decoration: none;
  }
 
-.start_button {
+/* .start_button {
     margin: 50px;
     padding: 15px;
     width: 200px;
@@ -36,17 +33,14 @@ a {
     color: rgb(23, 23, 59);
     font-size: 15px;
     font-weight: 500; 
-
-    position: relative;
-    top: 200px;
-    
+  
     cursor: pointer;
-}
+} */
 
-.start_button:hover {
+/* .start_button:hover {
     background-color: rgb(48, 48, 207);
     border: 2px solid rgb(213, 26, 163);  
-}
+} */
 
 /* @media (max-width: 320px) {
 

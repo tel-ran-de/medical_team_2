@@ -7,7 +7,7 @@ export default function Layout() {
     <div>
         <Nav />
         <main className='content_wrapper'>
-            <Outlet />
+          <Outlet />
         </main>
     </div>
   )

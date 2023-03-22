@@ -9,7 +9,17 @@
     box-sizing: border-box;
     font-family: 'Montserrat';
     font-style: normal;
-    color: #000000;
+    color:#101011;
+    /* background-image: url('../../media'); */  
+    
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color:#0077F5;
+    text-align: center;
+    text-shadow: 1px 1px 1px pink;
 }
 
 @media (max-width: 320px) {
