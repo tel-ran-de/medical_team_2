@@ -1,0 +1,11 @@
+.btn {
+    border: 1px solid blue;
+    border-radius: 30px;
+    border: 1px solid transparent;
+    padding: 10px 15px;
+    
+    background: linear-gradient(to right,rgb(214, 44, 149), blue);
+    color: whitesmoke;
+    font-weight: 600;
+    font-size: 18px;
+}
