@@ -3,31 +3,35 @@ import { Link } from 'react-router-dom';
 import { questions } from './data/questions.js';
 import s from './index.module.css';
 import { BiArrowBack } from 'react-icons/bi'
-
+import { postQuestion } from '../../requests/postQuestion.js';
 
 
 export default function Question() {
 
-  let [questionNum, setQuestionNum] = useState(32);
+  const [questionNum, setQuestionNum] = useState(33);
   
-  let questionNumIncr = (event) => {
+  const questionNumIncr = (event) => {
     if (questionNum < 35) {
-      console.log(event.target.value)
       const answer = {
-        id: questionNum,
+        id: questions[questionNum].id,
         value: event.target.value,
       };
       console.log(answer)
-      setQuestionNum(questionNum += 1);
-    } else {
-      setQuestionNum(questionNum = 35);
-    }
-    
+      postQuestion(answer);
+      setQuestionNum(questionNum + 1);
+    } else if (questionNum === 35) {
+      const answer = {
+        id: questions[questionNum].id,
+        value: event.target.value,
+      };
+      postQuestion(answer);
+      console.log(answer)
+    } 
   }
 
-  let questionNumDecr = () => {
+  const questionNumDecr = () => {
     if (questionNum > 0) {
-      setQuestionNum(questionNum -= 1);
+      setQuestionNum(questionNum - 1);
     } else {
       setQuestionNum(questionNum = 0);
     }
@@ -44,6 +48,7 @@ export default function Question() {
         : <></>
       }
 
+      <div>{questions[questionNum].id}</div>
       <p>{questions[questionNum].question}</p>
       <div className={s.buttons_container}>
         <button value='1' onClick={questionNumIncr}>1</button>
