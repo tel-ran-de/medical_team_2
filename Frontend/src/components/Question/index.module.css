@@ -6,13 +6,13 @@
     justify-content: center;
 }
 
-.buttons_container {
+.btns_answers {
     display: flex;
     flex-direction: row;
     gap: 15px;
 }
 
-.buttons_container button {
+.btns_answers button {
     width: 40px;
     height: 40px;
     border-radius: 20px;
@@ -21,43 +21,52 @@
     cursor: pointer;
 }
 
-.btn_go_back {
-    margin: 20px;
-    padding: 15px;
-    width: 120px;
-    height: 30px;
+.btns_answers :nth-child(1) {
+    background-color: green;
+}
+.btns_answers :nth-child(2) {
+    background-color: lightgreen;
+}
+
+.btns_answers :nth-child(3) {
+    background-color: yellow;
+}
+
+.btns_answers :nth-child(4) {
+    background-color: orange;
+}
+
+.btns_answers :nth-child(5) {
+    background-color: red;
+}
+
+.btns_answers :nth-child(6) {
+    background-color: brown;
+}
+
+.btns_back_help {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+}
+
+.btn_back {
+    padding: 12px 15px;
     border-radius: 30px;
+    background-color: iris;
+    border: 1px solid transparent;
+    color: rgb(23, 23, 59);
+    font-size: 18px;
+    font-weight: 500; 
+
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background-color: iris;
-    border: 1px solid rgb(48, 48, 207);
-    color: rgb(23, 23, 59);
-    font-size: 15px;
-    font-weight: 500; 
+    cursor: pointer;
 }
 
-.buttons_container :nth-child(1) {
-    background-color: green;
-}
-.buttons_container :nth-child(2) {
-    background-color: lightgreen;
-}
 
-.buttons_container :nth-child(3) {
-    background-color: yellow;
-}
-
-.buttons_container :nth-child(4) {
-    background-color: orange;
-}
-
-.buttons_container :nth-child(5) {
-    background-color: red;
-}
-
-.buttons_container :nth-child(6) {
-    background-color: brown;
-}
  
