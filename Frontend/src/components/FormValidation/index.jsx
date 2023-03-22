@@ -4,11 +4,11 @@ import { useForm } from 'react-hook-form';
 
 export default function FormValidation() {
 
-const [ user, setUser ] = useState([]);
+const [ userParams, setUserParams ] = useState([]);
 
-const createNewUser = user => {
-    setUser(prev => user)
-  };
+// const createNewUser = user => {
+//     setUser(prev => user)
+//   };
 
 const { register, handleSubmit, formState: { errors }} = useForm({
     mode: 'onBlur'
