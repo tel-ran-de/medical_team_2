@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
+import FormValidation from '../../components/FormValidation';
+
 
 export default function UserInfoPage() {
   return (
-    <div>UserInfoPage</div>
+    <div>
+      <FormValidation />
+    </div>
   )
 }
