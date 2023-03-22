@@ -5,11 +5,12 @@
 }
 
 .welcome_start {
-    margin-top: 80px;
+    margin-top: 20px;
     padding: 5px;
     text-align: center;
-    text-shadow: 2px 2px 1px  rgb(75, 75, 212);
-    font-size: 40px;
+    
+    /* text-shadow: 2px 2px 1px  rgb(75, 75, 212); */
+    font-size: 18px;
     font-weight: 600;
     font-style: italic;
     float: right;

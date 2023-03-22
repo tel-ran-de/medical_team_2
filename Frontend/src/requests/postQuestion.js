@@ -1,5 +1,5 @@
 export const postQuestion = (body) => {
-    fetch('https://http://localhost:8080/quiz', {
+    fetch('https://#', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

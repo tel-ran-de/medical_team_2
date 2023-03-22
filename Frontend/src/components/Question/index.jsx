@@ -21,7 +21,7 @@ export default function Question() {
       setQuestionNum(questionNum + 1);
     } else if (questionNum === 35) {
       const answer = {
-        id: questions[questionNum].id,
+        id: 36,
         value: event.target.value,
       };
       postQuestion(answer);
@@ -66,7 +66,7 @@ export default function Question() {
 
       {
         questionNum === 35 
-        ? <Link to='/tips'> <button>get help</button> </Link>
+        ? <Link to='/tips'> <button>get your therapy tips</button> </Link>
         :<></>
       }
 

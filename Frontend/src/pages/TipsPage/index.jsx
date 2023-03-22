@@ -15,6 +15,7 @@ export default function TipsPage() {
       </div>
       <p className={s.tips_title}>Meet your treatment buddies:</p>
       <Tip />
+      <Tip />
     </div>
   )
 }
