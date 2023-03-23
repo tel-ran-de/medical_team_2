@@ -21,18 +21,16 @@
 .feedback_block {
     display: flex;
     flex-direction: row;
-    gap: 10px;
-}
-
-.feedback_block button {
-    border: 1px solid blue;
-    border-radius: 8px;
-    padding: 10px;
-    color: blue;
+    justify-content: space-between;
 }
 
 .feedback_block :nth-child(2) {
+    border: 1px solid transparent;
+    padding: 12px 15px;
+    border-radius: 50px;
     background: linear-gradient(to right,rgb(214, 44, 149), blue);
-    color: aliceblue;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
 }
 

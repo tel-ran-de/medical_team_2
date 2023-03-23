@@ -5,6 +5,12 @@ import s from './index.module.css';
 import { BiArrowBack } from 'react-icons/bi'
 import Button from '../Button/index.jsx';
 import { Context } from '../../context';
+import red from '../../media/red.jfif';
+import orange from '../../media/orange.jfif';
+import lightyellow from '../../media/lightyellow.jfif';
+import yellow from '../../media/yellow.jfif';
+import green from '../../media/green.jfif';
+import lightgreen from '../../media/lightgreen.jfif';
 
 
 export default function Question() {
@@ -50,33 +56,34 @@ export default function Question() {
     <div className={s.question_container}>
 
       <div className={s.question_block}>
+       <div className={s.questions}>
         {
           questions[questionNum].section_title 
-          ? <h2>{questions[questionNum].section_title}</h2> 
+          ? <p className={s.question_title}>{questions[questionNum].section_title}</p> 
           : <></>
         }
 
-        <div>{questions[questionNum].id}</div>
+        <div className={s.num_question}>{questions[questionNum].id}</div>
         <p>{questions[questionNum].question}</p>
         </div>
       <div className={s.answers_block}>
         <div className={s.btns_answers}>
-          <button value={questions[questionNum].answer_green} onClick={questionNumIncr}></button>
-          <button value={questions[questionNum].answer_light_green} onClick={questionNumIncr}></button>
-          <button value={questions[questionNum].answer_light_yellow} onClick={questionNumIncr}></button>
-          <button value={questions[questionNum].answer_yellow} onClick={questionNumIncr}></button>
-          <button value={questions[questionNum].answer_orange} onClick={questionNumIncr}></button>
-          <button value={questions[questionNum].answer_red} onClick={questionNumIncr}></button>
+          <button value={questions[questionNum].answer_green} onClick={questionNumIncr}><img src={lightgreen} alt="lightgreen" /></button>
+          <button value={questions[questionNum].answer_light_green} onClick={questionNumIncr}><img src={green} alt="green" /></button>
+          <button value={questions[questionNum].answer_light_yellow} onClick={questionNumIncr}><img src={lightyellow} alt="lightyelow" /></button>
+          <button value={questions[questionNum].answer_yellow} onClick={questionNumIncr}><img src={yellow} alt="yellow" /></button>
+          <button value={questions[questionNum].answer_orange} onClick={questionNumIncr}><img src={orange} alt="orange" /></button>
+          <button value={questions[questionNum].answer_red} onClick={questionNumIncr}><img src={red} alt="red" /></button>
         </div>
         <div className={s.btns_back_help}>
         {
           questionNum === 0 
           ? <Link to='/select_problem'> <Button>return to problem choose</Button> </Link>
-          :<button onClick={questionNumDecr} className={s.btn_back}><BiArrowBack />go back</button>
+          :<button onClick={questionNumDecr} className={s.btn_back}>go back</button>
         }
         </div>
       </div>        
-      
+     </div> 
     </div>
   )
 }
