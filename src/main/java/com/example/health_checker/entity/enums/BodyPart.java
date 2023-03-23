@@ -10,6 +10,7 @@ import java.util.Arrays;
 @AllArgsConstructor
 @Getter
 public enum BodyPart {
+
     LEG(1,"leg"),ARM(2,"arm"),HEAD(3,"head"),
     SHOULDER(4,"shoulder"),ELBOW(5,"elbow"),KNEE(6,"knee"),
     NECK(7,"neck"),BACK(8,"back"),LOIN(9,"loin");
