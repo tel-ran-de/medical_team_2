@@ -13,8 +13,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 30px;
-    
+    margin-bottom: 30px;  
 }
 
 .questions {
@@ -34,9 +33,17 @@
     font-size: 12px;
 }
 
-/* .num_question {
-    text-align: start;    
-}    */
+.num_question {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px; 
+    background-color: #0077F5;  
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}   
 
 .answers_block {
     display: flex;
