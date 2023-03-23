@@ -1,18 +1,17 @@
 .start_page {
-    margin-top: 30px;
+    width: 100%;
+    height: 80vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    gap: 35px;
-    /* background-image: url('../../media/fon4.jpg'); */
+    
 }
 
 p {
-    text-align: center;
-    font-size: 15px;
-    font-weight: 700; 
-    font-style: italic;
-    color: rgb(157, 23, 99);
+    text-align: start;
+    font-size: 13px;
+    font-weight: 700;        
 }
 
 a {
@@ -42,12 +41,4 @@ a {
     border: 2px solid rgb(213, 26, 163);  
 } */
 
-/* @media (max-width: 320px) {
 
-    .start_page {
-        max-width: 320px;
-        min-width: 320px;
-        padding: 20px;
-    }
-
-} */

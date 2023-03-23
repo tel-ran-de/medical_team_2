@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './index.module.css';
 import human from './media/Siluet_human.png';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 export default function HumanBody() {
 

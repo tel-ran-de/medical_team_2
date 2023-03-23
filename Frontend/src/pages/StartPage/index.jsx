@@ -6,7 +6,8 @@ import Button from '../../components/Button';
 export default function StartPage() {
   return (
     <div className={s.start_page}>
-        <h2>You are welcome!</h2>
+
+        <h2>Welcome!</h2>
         <div>
           <p> Are you in pain?</p>
           <p>Before we can help you, please complete a short simple form.</p>
@@ -15,8 +16,7 @@ export default function StartPage() {
         </div>
         
         <Link to='/select_problem'>
-        {/* <button className={s.start_button}>Let's start</button> */}
-        <Button>Let's start</Button>
+          <Button>Let's start</Button>
         </Link>
     </div>
   )

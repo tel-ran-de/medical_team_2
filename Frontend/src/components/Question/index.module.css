@@ -1,72 +1,94 @@
+.question_container {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
 .question_block {
-    width: 280px;
+    height: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    
+}
+
+.questions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px; 
+}
+
+.questions p {
+    text-align: start;
+    font-size: 16px;
+}
+
+.question_title {
+    font-weight: 500;
+    font-size: 12px;
+}
+
+/* .num_question {
+    text-align: start;    
+}    */
+
+.answers_block {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    justify-content: center;
 }
 
 .btns_answers {
     display: flex;
     flex-direction: row;
-    gap: 15px;
-}
+    justify-content: space-between;
+} 
 
 .btns_answers button {
     width: 40px;
     height: 40px;
     border-radius: 20px;
-    padding: 15px;
-    border: 1px solid grey;
+    border: 1px solid transparent;
     cursor: pointer;
 }
 
-.btns_answers :nth-child(1) {
-    background-color: green;
-}
-.btns_answers :nth-child(2) {
-    background-color: lightgreen;
-}
-
-.btns_answers :nth-child(3) {
-    background-color: yellow;
-}
-
-.btns_answers :nth-child(4) {
-    background-color: orange;
-}
-
-.btns_answers :nth-child(5) {
-    background-color: red;
-}
-
-.btns_answers :nth-child(6) {
-    background-color: brown;
+.btns_answers img {
+    width: 40px;
+    height: 40px;
 }
 
 .btns_back_help {
-    margin-top: 50px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-   
+    justify-content: space-between; 
+    
 }
 
 .btn_back {
     padding: 12px 15px;
-    border-radius: 30px;
-    background-color: iris;
+    border-radius: 50px;
     border: 1px solid transparent;
-    color: rgb(23, 23, 59);
+    color: white;
     font-size: 18px;
     font-weight: 500; 
+    background-color: #0077F5;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
     cursor: pointer;
 }
+
+
+
+
+
+
 
 
  
