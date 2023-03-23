@@ -21,7 +21,7 @@ public class StoryComments {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "story_id")
+    @JoinColumn(name = "id")
     private Story story_id;
 
     @Column(name = "comment")
