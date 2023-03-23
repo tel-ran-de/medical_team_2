@@ -1,4 +1,5 @@
 export const questions = [
+
         {
             id: 1,
             section_title: 'Choose one option for each questionnaire item.',
@@ -504,4 +505,3 @@ export const questions = [
             boundary_value_red: 'Definitely false',
         },
     ]
-    

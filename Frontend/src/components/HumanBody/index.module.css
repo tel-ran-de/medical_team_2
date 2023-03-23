@@ -4,104 +4,65 @@
     height: 334px; 
 }
 
-
-
-.head{
+.dot{
     position: absolute;
-    margin-left: 50px;
-    margin-top: -5px;
     border: 5px solid #be4ed4;
     border-radius: 50%;
     width: 30px;
     height: 30px;
+    z-index: -5;
+}
+
+.dot_active {
+    background-color: #be4ed4;
+}
+
+.head{
+    margin-left: 50px;
+    margin-top: -5px;
 }
 
 .right_hand{
-    position: absolute;
     margin-left: 10px;
-    margin-top: 120px;
-    border: 5px solid #be4ed4;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    margin-top: 120px;  
 }
 
 .right_shoulder{
-    position: absolute;
     margin-left: 25px;
     margin-top: 53px;
-    border: 5px solid #be4ed4;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
 }
 
 .left_hand{
-    position: absolute;
     margin-left: 95px;
     margin-top: 120px;
-    border: 5px solid #be4ed4;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
 }
 
 .left_shoulder{
-    position: absolute;
     margin-left: 82px;
     margin-top: 53px;
-    border: 5px solid #be4ed4;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
 }
 
 .right_leg{
-    position: absolute;
     margin-left: 27px;
     margin-top: 230px;
-    border: 5px solid #be4ed4;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
 }
 
 .left_leg{
-    position: absolute;
     margin-left: 78px;
     margin-top: 230px;
-    border: 5px solid #be4ed4;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
 }
 
 .upper_back{
-    position: absolute;
     margin-left: 190px;
     margin-top: 39px;
-    border: 5px solid #be4ed4;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
 }
 
 .mid_back{
-    position: absolute;
     margin-left: 190px;
     margin-top: 80px;
-    border: 5px solid #be4ed4;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
 }
 
 .small_of_the_back{
-    position: absolute;
     margin-left: 190px;
     margin-top: 125px;
-    border: 5px solid #be4ed4;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
 }
