@@ -52,7 +52,7 @@ export default function Question() {
         <div className={s.questions}>
           {
             questions[questionNum].section_title 
-            ? <p className={s.question}>{questions[questionNum].section_title}</p> 
+            ? <p className={s.question_title}>{questions[questionNum].section_title}</p> 
             : <></>
           }
           <div className={s.num_question}>{questions[questionNum].id}</div>
