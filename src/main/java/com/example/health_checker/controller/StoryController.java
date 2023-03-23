@@ -32,11 +32,14 @@ public class StoryController {
         storyParamsService.getMapOfAnswers(params);
     }
 
-    @PostMapping("/therapy")
-    public String writeProblem(@RequestParam String problem, @RequestParam int id) {
-       if(storyRepository.findById(id)==null)
+    @PostMapping("/problem")
+    public void writeProblem(@RequestParam String problem,//как обрабатывать эти параметры
+                               @RequestParam(required = true) @PositiveInteger Integer height,
+                               @RequestParam(required = true) @PositiveInteger Integer weight,
+                               @RequestParam(required = true) @PositiveInteger Integer age,
+                               @RequestParam int id) {
         storyService.describeProblem(problem, id);
-        return "describing_page";
+
     }
 
     @GetMapping("/result")
@@ -50,5 +53,10 @@ public class StoryController {
        // model.addAttribute("therapy", storyService.getTherapyByParams(bodyPart));
        return "page_result";
     }
-//MORE ONE CONTROLLER
+
+    @GetMapping("/therapy")
+    public void getTherapy(Story story){
+        storyService.getTherapyByParams(story);
+
+    }
 }

@@ -29,7 +29,7 @@ public class StoryParamsService {
         Integer key = Integer.valueOf(params.getId());
         HashMap<Integer, Integer> answers = new HashMap<>();
         answers.put(key, value);
-        return answers;
+        return answers;//посчитать и сохранить вопросы
     }
 
     public Integer countingScores(StoryParams params) {
