@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import FormValidation from '../../components/FormValidation';
-
+import { Context } from '../../context';
+import Button from '../../components/Button';
+import { Link } from 'react-router-dom';
 
 export default function UserInfoPage() {
+
+  const { collectUserDataForRequest } = useContext(Context);
+
   return (
     <div>
       <FormValidation />
+    <Link to='/tips'>
+      <Button onClick={collectUserDataForRequest}>get tips</Button>
+    </Link>
     </div>
   )
 }
