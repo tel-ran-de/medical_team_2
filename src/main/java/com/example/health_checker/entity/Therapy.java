@@ -18,7 +18,7 @@ public class Therapy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private UUID id;
+    private int id;
 
     @Column(name = "name")
     private String name;

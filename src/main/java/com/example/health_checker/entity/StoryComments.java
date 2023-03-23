@@ -18,7 +18,7 @@ public class StoryComments {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private UUID id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "id")

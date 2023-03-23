@@ -21,7 +21,7 @@ public class Story {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private UUID id;
+    private int id;
 
     @Column(name = "description")
     private String description;

@@ -21,10 +21,10 @@ public class StoryVotes {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
-    private UUID id;
+    private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "story_id")
     private Story story_id;
 
     @Column(name = "type")

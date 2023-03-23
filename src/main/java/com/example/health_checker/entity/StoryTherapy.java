@@ -17,14 +17,14 @@ public class StoryTherapy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private UUID id;
+    private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "story_id")
     private Story story_id;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "therapy_id")
     private Therapy therapy_id;
 
     @Column(name = "value")

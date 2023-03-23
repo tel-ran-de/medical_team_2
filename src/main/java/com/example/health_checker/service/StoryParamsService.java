@@ -24,12 +24,12 @@ public class StoryParamsService {
         this.storyRepository = storyRepository;
     }
 
-    public HashMap<Integer, Integer> getMapOfAnswers(StoryParams params) {
+    public HashMap<Integer, Integer> getMapOfAnswers(StoryParams params) {//изменить параметр на стринг или
         Integer value = Integer.valueOf(params.getValue());
-        Integer key = params.getId();
+        Integer key = Integer.valueOf(params.getId());
         HashMap<Integer, Integer> answers = new HashMap<>();
         answers.put(key, value);
-        return answers;
+        return answers;//посчитать и сохранить вопросы
     }
 
     public Integer countingScores(StoryParams params) {
@@ -177,15 +177,10 @@ public class StoryParamsService {
         return answers;
     }
 
-    public Integer countingBMI(StoryParams params) {
+    public Integer countingBMI(Integer height,Integer weight,Integer age,StoryParams params) {
         HashMap<String, Integer> answers = getMapOfBMI(params);
-//        for (Map.Entry<String, Integer> entry : answers.entrySet()) {
-//            Integer height = entry.getValue(entry.getKey());
-//            entry.
-        Integer height = answers.get("height");
-        Integer weight = answers.get("weight");
+         height = answers.get("height");
+         weight = answers.get("weight");
         return weight / (height * height);
-}
-
-
+    }
 }

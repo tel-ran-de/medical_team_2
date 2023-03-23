@@ -1,12 +1,11 @@
 package com.example.health_checker.entity;
 
-import com.example.health_checker.entity.converter.BodyPartConverter;
+import com.example.health_checker.entity.converter.IndexTypeConverter;
 import com.example.health_checker.entity.enums.IndexType;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -21,15 +20,15 @@ public class StoryParams {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "value")//json
+    @Column(name = "value")
     private String value;
 
     @Enumerated(EnumType.STRING)
-    @Convert(converter = IndexType.class)
-    @Column(name = "type")//FK
+    @Convert(converter = IndexTypeConverter.class)
+    @Column(name = "type")
     private IndexType type;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "story_id")
     private Story story_id;
 }
