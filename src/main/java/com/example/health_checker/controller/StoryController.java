@@ -1,92 +1,62 @@
 package com.example.health_checker.controller;
 
 import com.example.health_checker.entity.Story;
-import com.example.health_checker.entity.StoryParams;
 import com.example.health_checker.entity.StoryTherapy;
 import com.example.health_checker.entity.enums.BodyPart;
-import com.example.health_checker.service.impl.StoryParamsServiceImpl;
-import com.example.health_checker.service.impl.StoryServiceImpl;
-import com.example.health_checker.service.impl.StoryTherapyServiceImpl;
-import com.example.health_checker.validation.PositiveInteger;
+import com.example.health_checker.service.CountingService;
+import com.example.health_checker.service.ParsingService;
+import com.example.health_checker.service.StoryService;
+import com.example.health_checker.service.StoryTherapyService;
 import lombok.RequiredArgsConstructor;
+import org.json.JSONArray;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static org.springframework.http.HttpStatus.OK;
+
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/health")
 public class StoryController {
 
-    private final StoryParamsServiceImpl storyParamsServiceImpl;
-    private final StoryServiceImpl storyServiceImpl;
-    private final StoryTherapyServiceImpl therapyService;
+    private final CountingService countingService;
+    private final StoryService storyService;
+    private final ParsingService parsingService;
+    private final StoryTherapyService storyTherapyService;
 
-    /**
-     *
-     * @param bodyPart
-     */
     @PostMapping("/pain-source")
-    public void chooseBodyPart(@RequestBody BodyPart bodyPart) {
-        storyServiceImpl.chooseBodyPart(bodyPart);
+    @ResponseStatus(OK)
+    public void chooseBodyPart(@RequestParam BodyPart bodyPart) {
+        storyService.chooseBodyPart(bodyPart);
     }
 
-    /**
-     *
-     * @param params
-     */
-    @PostMapping("/quiz")
-    public void createStory(@RequestBody StoryParams params) {
-        storyParamsServiceImpl.getMapOfAnswers(params);
+    @GetMapping("/story")
+    @ResponseStatus(OK)
+    public void createStory(@RequestBody JSONArray jsonArray) {
+        parsingService.parseJSONArray(jsonArray);
     }
-
-    /**
-     *
-     * @param problem
-     * @param height
-     * @param weight
-     * @param age
-     * @param id
-     */
+    @GetMapping("/therapy")
+    @ResponseStatus(OK)
+    public List<StoryTherapy> getTherapy(Story story){
+        return  storyTherapyService.getTherapyByParams(story);
+    }
     @PostMapping("/problem")
     public void writeProblem(@RequestParam String problem,
-                               @RequestParam(required = true) @PositiveInteger Integer height,
-                               @RequestParam(required = true) @PositiveInteger Integer weight,
-                               @RequestParam(required = true) @PositiveInteger Integer age,
-                               @RequestParam int id) {
-        storyServiceImpl.describeProblem(problem, id);
+                             @RequestParam Integer id) {
+        storyService.describeProblem(problem, id);
     }
 
-    /**
-     *
-     * @param height
-     * @param weight
-     * @param age
-     * @param params
-     * @param bodyPart
-     * @param model
-     * @return
-     */
     @GetMapping("/result")
-    public String getIndexResult(@RequestParam(required = true) @PositiveInteger Integer height,//SAVE TIO DB AND
-                                 @RequestParam(required = true) @PositiveInteger Integer weight,
-                                 @RequestParam(required = true) @PositiveInteger Integer age,
-                                 @RequestBody StoryParams params,
-                                 @RequestParam(required = false) BodyPart bodyPart, Model model) {
-       // model.addAttribute("scores", storyParamsService.countingScores(params));
-     //   model.addAttribute("BMI", storyParamsService.countingBMI(age,params));
-       // model.addAttribute("therapy", storyService.getTherapyByParams(bodyPart));
-       return "page_result";
-    }
-
-    /**
-     *
-     * @param story
-     * @return
-     */
-    @GetMapping("/therapy")
-    public List<StoryTherapy> getTherapy(Story story){
-      return  therapyService.getTherapyByParams(story);
+    @ResponseStatus(OK)
+    public String getIndexResult(@RequestBody JSONArray jsonArray,
+                                 @RequestBody(required = false) Story story,
+                                 Model model) {
+        model.addAttribute("scores", countingService.countingScores(jsonArray));
+        model.addAttribute("BMI", countingService.countingBMI(jsonArray));
+        model.addAttribute("therapy", storyTherapyService.getTherapyByParams(story));
+        return "page_result";
     }
 }

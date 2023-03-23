@@ -8,8 +8,10 @@ import com.example.health_checker.repository.StoryRepository;
 import com.example.health_checker.service.StoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
+@Transactional
 @Service
 @RequiredArgsConstructor
 public class StoryServiceImpl implements StoryService {

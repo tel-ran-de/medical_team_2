@@ -8,9 +8,11 @@ import com.example.health_checker.repository.StoryTherapyRepository;
 import com.example.health_checker.service.StoryTherapyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 @Service
 @RequiredArgsConstructor
 public class StoryTherapyServiceImpl implements StoryTherapyService {
@@ -23,8 +25,7 @@ public class StoryTherapyServiceImpl implements StoryTherapyService {
         if (therapy.isEmpty()){
             throw new NoAnyRecord(ErrorMessage.NO_RECORDS);
         }
-        therapy.stream().filter(st->st.getStory().getBodyPart().equals(story.getBodyPart()));
-        return therapy;
+        return therapy.stream().filter(st->st.getStory().getBodyPart().equals(story.getBodyPart())).toList();
         }
     }
 

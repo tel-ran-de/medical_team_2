@@ -1,55 +1,27 @@
 package com.example.health_checker.service.impl;
 
-import com.example.health_checker.entity.StoryParams;
-import com.example.health_checker.repository.StoryParamsRepository;
-import com.example.health_checker.repository.StoryRepository;
-import com.example.health_checker.service.StoryParamService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.health_checker.service.CountingService;
+import com.example.health_checker.service.ParsingService;
+import lombok.RequiredArgsConstructor;
+import org.json.JSONArray;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Transactional
 @Service
-public class StoryParamsServiceImpl implements StoryParamService {
+@RequiredArgsConstructor
+public class CountingServiceImpl implements CountingService {
 
-    private final StoryParamsRepository paramsRepository;
-
-    private final StoryRepository storyRepository;
+    private final ParsingService parsingService;
 
     private Integer group1, group2, group3, group4, group5, group6, total;
 
-    @Autowired
-    public StoryParamsServiceImpl(StoryParamsRepository paramsRepository, StoryRepository storyRepository) {
-        this.paramsRepository = paramsRepository;
-        this.storyRepository = storyRepository;
-    }
-
-    /**
-     * @param params
-     * @return
-     */
-    @Override
-    public HashMap<Integer, Integer> getMapOfAnswers(StoryParams params) {//изменить параметр на стринг или
-        Integer value = Integer.valueOf(params.getValue());
-        Integer key = Integer.valueOf(params.getId());
-        HashMap<Integer, Integer> answers = new HashMap<>();
-        answers.put(key, value);
-        return answers;//посчитать и сохранить вопросы
-    }
-
-    @Override
-    public Integer countingScores(StoryParams params) {
-        HashMap<Integer, Integer> answers = getMapOfAnswers(params);
-        for (Map.Entry<Integer, Integer> entry : answers.entrySet()) {
-            Integer score = entry.getValue();
-
+@Override
+    public Integer countingScores(JSONArray jsonArrayAnswers) {
+        for (int i = 0; i < jsonArrayAnswers.length(); i++) {
+            int score = Integer.parseInt(jsonArrayAnswers.getString(i));
             // Questions # 1, 2, 20, 22, 34, 36
-            if (entry.getKey() == 0 || entry.getKey() == 1 || entry.getKey() == 19
-                    || entry.getKey() == 21 || entry.getKey() == 33
-                    || entry.getKey() == 35) {
+            if (i == 0 || i == 1 || i == 19 || i == 21 || i == 33 || i == 35) {
                 switch (score) {
                     case 1:
                         score = 100;
@@ -71,7 +43,7 @@ public class StoryParamsServiceImpl implements StoryParamService {
             }
 
             // Questions # 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
-            if (entry.getKey() > 1 && entry.getKey() < 12) {
+            if (i > 1 && i < 12) {
                 switch (score) {
                     case 1:
                         score = 0;
@@ -87,7 +59,7 @@ public class StoryParamsServiceImpl implements StoryParamService {
             }
 
             // Questions # 13, 14, 15, 16, 17, 18, 19
-            if (entry.getKey() > 11 && entry.getKey() < 19) {
+            if (i > 11 && i < 19) {
                 switch (score) {
                     case 1:
                         score = 0;
@@ -100,8 +72,7 @@ public class StoryParamsServiceImpl implements StoryParamService {
             }
 
             // Questions # 21, 23, 26, 27, 30
-            if (entry.getKey() == 20 || entry.getKey() == 22 || entry.getKey() == 25
-                    || entry.getKey() == 26 || entry.getKey() == 29) {
+            if (i == 20 || i == 22 || i == 25 || i == 26 || i == 29) {
                 switch (score) {
                     case 1:
                         score = 100;
@@ -126,8 +97,7 @@ public class StoryParamsServiceImpl implements StoryParamService {
             }
 
             // Questions # 24, 25, 28, 29, 31
-            if (entry.getKey() == 23 || entry.getKey() == 24 || entry.getKey() == 27
-                    || entry.getKey() == 28 || entry.getKey() == 30) {
+            if (i == 23 || i == 24 || i == 27 || i == 28 || i == 30) {
                 switch (score) {
                     case 1:
                         score = 0;
@@ -152,7 +122,7 @@ public class StoryParamsServiceImpl implements StoryParamService {
             }
 
             // Questions # 32, 33, 35
-            if (entry.getKey() == 31 || entry.getKey() == 32 || entry.getKey() == 34) {
+            if (i == 31 || i == 32 || i == 34) {
                 switch (score) {
                     case 1:
                         score = 0;
@@ -177,21 +147,18 @@ public class StoryParamsServiceImpl implements StoryParamService {
         total = (group1 / 6 + group2 / 10 + group3 / 7 + group4 / 5 + group5 / 5 + group6 / 3) / 6;
         return total;
     }
-
-    @Override
-    public HashMap<String, Integer> getMapOfBMI(StoryParams params) {
-        Integer value = Integer.valueOf(params.getValue());
-        String key = String.valueOf(params.getId());
-        HashMap<String, Integer> answers = new HashMap<>();
-        answers.put(key, value);
-        return answers;
-    }
-
-    @Override
-    public Integer countingBMI(StoryParams params) {
-        HashMap<String, Integer> answers = getMapOfBMI(params);
-        Integer height = answers.get("height");
-        Integer weight = answers.get("weight");
+@Override
+    public Integer countingBMI(JSONArray jsonArrayBMI) {
+        int weight = 0;
+        int height = 0;
+        for (int i = 0; i < jsonArrayBMI.length(); i++) {
+            if (jsonArrayBMI.getJSONObject(i).has("weight")) {
+                weight = Integer.parseInt(jsonArrayBMI.getString(i));
+            }
+            if (jsonArrayBMI.getJSONObject(i).has("height")) {
+                height = Integer.parseInt(jsonArrayBMI.getString(i));
+            }
+        }
         return weight / (height * height);
     }
 }
