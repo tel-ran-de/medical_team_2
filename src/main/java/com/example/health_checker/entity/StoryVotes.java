@@ -6,8 +6,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import java.util.UUID;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

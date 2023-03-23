@@ -8,6 +8,9 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
+  batch:
+    job:
+      enabled: false
 
 server:
   port: 8080

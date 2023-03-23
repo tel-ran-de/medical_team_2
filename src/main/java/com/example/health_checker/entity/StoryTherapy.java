@@ -3,8 +3,6 @@ package com.example.health_checker.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
-import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -21,7 +19,7 @@ public class StoryTherapy {
 
     @ManyToOne
     @JoinColumn(name = "story_id")
-    private Story story_id;
+    private Story story;
 
     @ManyToOne
     @JoinColumn(name = "therapy_id")

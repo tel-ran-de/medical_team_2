@@ -1,16 +1,19 @@
-package com.example.health_checker.service;
+package com.example.health_checker.service.impl;
 
 import com.example.health_checker.entity.StoryParams;
 import com.example.health_checker.repository.StoryParamsRepository;
 import com.example.health_checker.repository.StoryRepository;
+import com.example.health_checker.service.StoryParamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Transactional
 @Service
-public class StoryParamsService {
+public class StoryParamsServiceImpl implements StoryParamService {
 
     private final StoryParamsRepository paramsRepository;
 
@@ -19,11 +22,16 @@ public class StoryParamsService {
     private Integer group1, group2, group3, group4, group5, group6, total;
 
     @Autowired
-    public StoryParamsService(StoryParamsRepository paramsRepository, StoryRepository storyRepository) {
+    public StoryParamsServiceImpl(StoryParamsRepository paramsRepository, StoryRepository storyRepository) {
         this.paramsRepository = paramsRepository;
         this.storyRepository = storyRepository;
     }
 
+    /**
+     * @param params
+     * @return
+     */
+    @Override
     public HashMap<Integer, Integer> getMapOfAnswers(StoryParams params) {//изменить параметр на стринг или
         Integer value = Integer.valueOf(params.getValue());
         Integer key = Integer.valueOf(params.getId());
@@ -32,6 +40,7 @@ public class StoryParamsService {
         return answers;//посчитать и сохранить вопросы
     }
 
+    @Override
     public Integer countingScores(StoryParams params) {
         HashMap<Integer, Integer> answers = getMapOfAnswers(params);
         for (Map.Entry<Integer, Integer> entry : answers.entrySet()) {
@@ -169,6 +178,7 @@ public class StoryParamsService {
         return total;
     }
 
+    @Override
     public HashMap<String, Integer> getMapOfBMI(StoryParams params) {
         Integer value = Integer.valueOf(params.getValue());
         String key = String.valueOf(params.getId());
@@ -177,10 +187,11 @@ public class StoryParamsService {
         return answers;
     }
 
-    public Integer countingBMI(Integer height,Integer weight,Integer age,StoryParams params) {
+    @Override
+    public Integer countingBMI(StoryParams params) {
         HashMap<String, Integer> answers = getMapOfBMI(params);
-         height = answers.get("height");
-         weight = answers.get("weight");
+        Integer height = answers.get("height");
+        Integer weight = answers.get("weight");
         return weight / (height * height);
     }
 }

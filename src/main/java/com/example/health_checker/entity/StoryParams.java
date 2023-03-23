@@ -23,6 +23,18 @@ public class StoryParams {
     @Column(name = "value")
     private String value;
 
+    @Column(name ="height" )
+    private Integer height;
+
+    @Column(name ="weight" )
+    private Integer weight;
+
+    @Column(name ="age" )
+    private Integer age;
+
+    @Column(name ="sex" )
+    private String sex;
+
     @Enumerated(EnumType.STRING)
     @Convert(converter = IndexTypeConverter.class)
     @Column(name = "type")
