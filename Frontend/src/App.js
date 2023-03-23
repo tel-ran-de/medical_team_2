@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import StartPage from './pages/StartPage';
 import SelectProblemPage from './pages/SelectProblemPage';
@@ -9,16 +9,20 @@ import UserInfoPage from './pages/UserInfoPage';
 import TipsPage from './pages/TipsPage';
 import { Context } from './context';
 import { questions } from './QuestionsList/questions';
+import { postUserData } from './requests/postUserData';
 
 function App() {
+
+  const navigate = useNavigate();
 
   const [ bodyArea, setBodyArea ] = useState([]);
   const [checked, setChecked ] = useState(false);
   const [ answers, setAnswers ] = useState([]);
+  const [ bmi, setBmi ] = useState([]);
   const [userData, setUserData] = useState([]);
+  const [response, setResponse] = useState([]);
 
   const toggleBodyArea = (title) => {
-  
     if (bodyArea.includes(title)) {
       setBodyArea(bodyArea.filter(el => el !== title));
       setChecked(!checked)
@@ -27,27 +31,23 @@ function App() {
       setChecked(!checked)
     }
   }; 
-  console.log(checked);
 
-  // const collectUserData = (data) => {
-  //   setUserData(state => [...state, {
-  //     id: Date.now(),
-  //     ...data,
-  //   }])
-  // }  
-
-  // const collectUserData = (data) => { 
-  //   setUserData({
-  //     ...data,
-  //   })
-  // }  
-
-
-    
+  const collectUserDataForRequest = () => {
+    const userData = {
+        user_body_areas: bodyArea,
+        user_answers: answers,
+        user_bmi: bmi,
+      }
+      postUserData(userData, (res) => {  // res from server
+        // navigate('/tips')
+        setResponse(res)
+      });
+    // return userData;   
+  } 
 
   return (
     <div>
-      <Context.Provider value={{bodyArea, setBodyArea, toggleBodyArea, checked, answers, setAnswers, questions}}>
+      <Context.Provider value={{bodyArea, setBodyArea, toggleBodyArea, checked, answers, setAnswers, bmi, setBmi,collectUserDataForRequest, response, questions}}>
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<StartPage />} />

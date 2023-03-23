@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Tip from '../../components/Tip'
 import s from './index.module.css'
+import { Context } from '../../context';
 
 export default function TipsPage() {
+
+  const { response } = useContext(Context);
+
   return (
     <div>
       <div className={s.score}>
         <p>Your health score:</p>
-        <p>#</p>
+        <p>{'res'}</p>
       </div>
       <div className={s.bmi}>
         <p>Your BMI:</p>
