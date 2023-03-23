@@ -15,7 +15,7 @@ const { register, handleSubmit, formState: { errors }} = useForm({
 });
 
 const submit = data => {
-    console.log(data, createNewUser)
+    console.log(data)
 }
 
 const heightRegex = /^\d{2,3}$/;

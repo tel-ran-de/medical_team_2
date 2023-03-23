@@ -5,7 +5,7 @@ export const questions = [
         question: 'In general, would you say your health is:',
         answer: 5,
         answer_green: 1,
-        answer_light_green: 2,
+        answer_light_grin: 2,
         answer_light_yellow: 3,
         answer_yellow: 0,
         answer_orange: 4,

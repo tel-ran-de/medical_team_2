@@ -1,31 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { questions } from './data/questions.js';
 import s from './index.module.css';
 import { BiArrowBack } from 'react-icons/bi'
 import { postQuestion } from '../../requests/postQuestion.js';
 import Button from '../Button/index.jsx';
+import { Context } from '../../context';
 
 
 export default function Question() {
 
-  const [questionNum, setQuestionNum] = useState(33);
+  const [ questionNum, setQuestionNum ] = useState(0);
+  const { answers, setAnswers } = useContext(Context);
   
   const questionNumIncr = (event) => {
     if (questionNum < 35) {
       const answer = {
-        id: questions[questionNum].id,
+        id_question: questions[questionNum].id,
         value: event.target.value,
       };
       console.log(answer)
-      postQuestion(answer);
+      // postQuestion(answer);
+      // collectUserData(answer)
       setQuestionNum(questionNum + 1);
     } else if (questionNum === 35) {
       const answer = {
-        id: 36,
+        id_question: 36,
         value: event.target.value,
       };
-      postQuestion(answer);
+      // postQuestion(answer);
+      // collectUserData(answer)
       console.log(answer)
     } 
   }
@@ -40,39 +44,43 @@ export default function Question() {
   }
 
   console.log(questionNum)
-
+  
   return (
-    <div className={s.question_block}>
-      {
-        questions[questionNum].section_title 
-        ? <h2>{questions[questionNum].section_title}</h2> 
-        : <></>
-      }
+    <div className={s.question_container}>
 
-      <div>{questions[questionNum].id}</div>
-      <p>{questions[questionNum].question}</p>
-      <div className={s.btns_answers}>
-        <button value='1' onClick={questionNumIncr}>1</button>
-        <button value='2' onClick={questionNumIncr}>2</button>
-        <button value='3' onClick={questionNumIncr}>3</button>
-        <button value='4' onClick={questionNumIncr}>4</button>
-        <button value='5' onClick={questionNumIncr}>5</button>
-      </div>
-      <div className={s.btns_back_help}>
-      {
-        questionNum === 0 
-        ? <Link to='/select_problem'> <button>return to problem choose</button> </Link>
-        :<button onClick={questionNumDecr} className={s.btn_back}><BiArrowBack /> back</button>
-      }
+      <div className={s.question_block}>
+        {
+          questions[questionNum].section_title 
+          ? <h2>{questions[questionNum].section_title}</h2> 
+          : <></>
+        }
 
-      {
-        questionNum === 35 
-        ? <Link to='/tips'> <Button>get help</Button> </Link>
-        :<></>
-      }
+        <div>{questions[questionNum].id}</div>
+        <p>{questions[questionNum].question}</p>
+        </div>
+      <div className={s.answers_block}>
+        <div className={s.btns_answers}>
+          <button value='1' onClick={questionNumIncr}>1</button>
+          <button value='2' onClick={questionNumIncr}>2</button>
+          <button value='3' onClick={questionNumIncr}>3</button>
+          <button value='4' onClick={questionNumIncr}>4</button>
+          <button value='5' onClick={questionNumIncr}>5</button>
+        </div>
+        <div className={s.btns_back_help}>
+        {
+          questionNum === 0 
+          ? <Link to='/select_problem'> <button>return to problem choose</button> </Link>
+          :<button onClick={questionNumDecr} className={s.btn_back}><BiArrowBack /> back</button>
+        }
 
-      </div>
-            
+        {
+          questionNum === 35 
+          ? <Link to='/tips'> <Button>get help</Button> </Link>
+          :<></>
+        }
+
+        </div>
+      </div>        
       
     </div>
   )
