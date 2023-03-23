@@ -20,12 +20,12 @@ public class StoryParams {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "value")//json
+    @Column(name = "value")
     private String value;
 
     @Enumerated(EnumType.STRING)
     @Convert(converter = IndexTypeConverter.class)
-    @Column(name = "type")//FK
+    @Column(name = "type")
     private IndexType type;
 
     @ManyToOne

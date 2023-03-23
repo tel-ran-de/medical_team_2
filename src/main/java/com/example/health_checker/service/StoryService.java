@@ -1,7 +1,10 @@
 package com.example.health_checker.service;
 
 import com.example.health_checker.entity.Story;
+import com.example.health_checker.entity.Therapy;
 import com.example.health_checker.entity.enums.BodyPart;
+import com.example.health_checker.exceptions.ErrorMessage;
+import com.example.health_checker.exceptions.StoryNotExistedException;
 import com.example.health_checker.repository.StoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,14 +26,15 @@ public class StoryService {
     }
 
     public void chooseBodyPart(BodyPart bodyPart) {
-        Story story = new Story();
-        story.setBodyPart(bodyPart);
+        Story story = Story.builder()
+                .bodyPart(bodyPart).build();
         storyRepository.save(story);
     }
 
-    public void describeProblem(String problem, String id) {
-        Story story = storyRepository.findById(id).orElseThrow();
+    public void describeProblem(String problem, int id) {
+        Story story = storyRepository.findById(id).orElseThrow(()->new StoryNotExistedException(ErrorMessage.STORY_NOT_EXISTS));//CREATE PROBLEB IF NOT FIND
         story.setDescription(problem);
+        storyRepository.save(story);
     }
 
 }

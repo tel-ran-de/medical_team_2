@@ -24,7 +24,7 @@ public class StoryParamsService {
         this.storyRepository = storyRepository;
     }
 
-    public HashMap<Integer, Integer> getMapOfAnswers(StoryParams params) {
+    public HashMap<Integer, Integer> getMapOfAnswers(StoryParams params) {//изменить параметр на стринг или
         Integer value = Integer.valueOf(params.getValue());
         Integer key = Integer.valueOf(params.getId());
         HashMap<Integer, Integer> answers = new HashMap<>();
