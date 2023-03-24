@@ -11,7 +11,8 @@
 p {
     text-align: start;
     font-size: 13px;
-    font-weight: 700;        
+    font-weight: 700;  
+    margin: 25px 0;      
 }
 
 a {

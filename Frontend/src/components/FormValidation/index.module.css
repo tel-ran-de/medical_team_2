@@ -22,3 +22,9 @@ label {
   background: #fff;
   padding: 0 5px;
 }
+
+.btn {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
