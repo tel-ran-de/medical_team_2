@@ -15,7 +15,7 @@ export default function TipsPage() {
       </div>
       <div className={s.bmi}>
         <p>Your BMI:</p>
-        <p>#</p>
+        <p>{'res'}</p>
       </div>
       <p className={s.tips_title}>Meet your treatment buddies:</p>
       <Tip />
