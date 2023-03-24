@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import FormValidation from '../../components/FormValidation';
 import { Context } from '../../context';
-import Button from '../../components/Button';
-import { Link } from 'react-router-dom';
+import s from './index.module.css';
 
 export default function UserInfoPage() {
 
@@ -11,9 +10,7 @@ export default function UserInfoPage() {
   return (
     <div>
       <FormValidation />
-   
-      <Button onClick={collectUserDataForRequest}>get tips</Button>
-    
+      <button className={s.btn} onClick={collectUserDataForRequest}>get tips</button>
     </div>
   )
 }

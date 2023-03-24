@@ -19,7 +19,7 @@ function App() {
   const [checked, setChecked ] = useState(false);
   const [ answers, setAnswers ] = useState([]);
   const [ bmi, setBmi ] = useState([]);
-  const [userData, setUserData] = useState([]);
+  // const [userData, setUserData] = useState([]);
   const [response, setResponse] = useState([]);
 
   const toggleBodyArea = (title) => {
@@ -33,7 +33,6 @@ function App() {
   }; 
 
   const collectUserDataForRequest = () => {
-    console.log('123')
     const userData = {
         user_body_areas: bodyArea,
         user_answers: answers,
@@ -41,6 +40,7 @@ function App() {
         // user_therapy: therapy,
         // user_description: description,
       }
+      console.log(userData);
       postUserData(userData, (res) => {  // res from server
         navigate('/tips')
         setResponse(res)

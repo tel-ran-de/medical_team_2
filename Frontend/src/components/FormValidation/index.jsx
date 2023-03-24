@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Context } from '../../context';
 import s from './index.module.css';
+import Button from '../Button';
 
 export default function FormValidation() {
 
@@ -67,7 +68,8 @@ const ageRegister = register('age', {
         </div>
       </div>
         
-        <button>Confirm</button>
+        <Button>Confirm</Button>
+        {/* <button>Confirm</button> */}
 
         <div>
           { errors?.height && <p> {errors?.height?.message } </p>}
