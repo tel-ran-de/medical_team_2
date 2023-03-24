@@ -55,15 +55,15 @@ const ageRegister = register('age', {
       <div className={s.input_container}>
         <div className={s.input_box}>
           <label>Height</label>
-          <input type="number" name='height' placeholder='175' {...heightRegister}/>
+          <input type="number" name='height' placeholder='175' autoComplete="off" {...heightRegister}/>
         </div>
         <div className={s.input_box}>
           <label>Weight</label>
-          <input type="number" name='weight' placeholder='85' {...weightRegister}/>
+          <input type="number" name='weight' placeholder='85' autoComplete="off" {...weightRegister}/>
         </div>
         <div className={s.input_box}>
           <label>Age</label>
-          <input type="number" name='age' placeholder='50'  {...ageRegister}/>
+          <input type="number" name='age' placeholder='50' autoComplete="off" {...ageRegister}/>
         </div>
       </div>
         

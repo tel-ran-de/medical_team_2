@@ -33,13 +33,16 @@ function App() {
   }; 
 
   const collectUserDataForRequest = () => {
+    console.log('123')
     const userData = {
         user_body_areas: bodyArea,
         user_answers: answers,
         user_bmi: bmi,
+        // user_therapy: therapy,
+        // user_description: description,
       }
       postUserData(userData, (res) => {  // res from server
-        // navigate('/tips')
+        navigate('/tips')
         setResponse(res)
       });
     // return userData;   
@@ -47,7 +50,7 @@ function App() {
 
   return (
     <div>
-      <Context.Provider value={{bodyArea, setBodyArea, toggleBodyArea, checked, answers, setAnswers, bmi, setBmi,collectUserDataForRequest, response, questions}}>
+      <Context.Provider value={{bodyArea, setBodyArea, toggleBodyArea, checked, answers, setAnswers, bmi, setBmi, collectUserDataForRequest, response, questions}}>
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<StartPage />} />

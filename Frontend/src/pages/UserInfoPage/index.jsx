@@ -11,9 +11,9 @@ export default function UserInfoPage() {
   return (
     <div>
       <FormValidation />
-    <Link to='/tips'>
+   
       <Button onClick={collectUserDataForRequest}>get tips</Button>
-    </Link>
+    
     </div>
   )
 }
