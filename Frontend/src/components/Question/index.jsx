@@ -29,13 +29,17 @@ export default function Question() {
   
   const questionNumIncr = (event) => {
     event.preventDefault();
+    let target = event.target;
+    while (target.tagName.toLowerCase() !== "button") {
+    target = target.parentNode;
+}
     if (questionNum < 35) {
-      const answer = event.target.value;
+      const answer = target.value;
       const idx = questionNum;
       addAnswer(idx, answer)
       setQuestionNum(questionNum + 1);
     } else if (questionNum === 35) {
-      const answer = event.target.value;
+      const answer = target.value;
       const idx = 35;
       addAnswer(idx, answer)
       navigate('/user_info')
