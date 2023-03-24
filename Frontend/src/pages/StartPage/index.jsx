@@ -10,9 +10,8 @@ export default function StartPage() {
         <h2>Wellcome!</h2>
         <div>
           <p> Are you in pain?</p>
-          <p>Before we can help you, please complete a short simple form.</p>
-          <p>There are only 36 questions here, but it won't take much of your time. Our app will find the therapy recommendations that are right especially for you and that have been tested by other users. </p>
-          
+          <p> Before we can help you, please fill out a simple, anonymous form. </p>
+          <p> Answer the 36 short questions and the app will recommend the right therapy for you that has been tested by other users. </p>
         </div>
 
         <Link to='/select_problem'>

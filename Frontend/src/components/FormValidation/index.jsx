@@ -68,8 +68,11 @@ const ageRegister = register('age', {
         </div>
       </div>
         
-        <Button>Confirm</Button>
-        {/* <button>Confirm</button> */}
+        <div className={s.btn}>
+          < Button>Confirm</Button>
+        </div>
+        
+        {/* <button className={s.btn}>Confirm</button> */}
 
         <div>
           { errors?.height && <p> {errors?.height?.message } </p>}
