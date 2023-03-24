@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Context } from '../../context';
+import s from './index.module.css';
 
 export default function FormValidation() {
 

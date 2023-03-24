@@ -1,0 +1,24 @@
+.input_container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.input_box{
+  position: relative;
+}
+
+input {
+  background: #fff;
+  padding: 10px;
+  border-radius: 11px;
+  width: 80px;
+  border: 2px solid #4875f7;
+}
+
+label {
+  position: absolute;
+  top: -10px;
+  left: 5px;
+  background: #fff;
+  padding: 0 5px;
+}
