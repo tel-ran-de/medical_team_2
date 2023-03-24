@@ -51,10 +51,22 @@ const ageRegister = register('age', {
 
   return (
     <form onSubmit={handleSubmit(submit)}>
-        <input type="number" name='height' placeholder='175' {...heightRegister}/>
-        <input type="number" name='weight' placeholder='85' {...weightRegister}/>
-        <input type="number" name='age' placeholder='50'  {...ageRegister}/>
-        <button>Add user</button>
+      <div className={s.input_container}>
+        <div className={s.input_box}>
+          <label>Height</label>
+          <input type="number" name='height' placeholder='175' {...heightRegister}/>
+        </div>
+        <div className={s.input_box}>
+          <label>Weight</label>
+          <input type="number" name='weight' placeholder='85' {...weightRegister}/>
+        </div>
+        <div className={s.input_box}>
+          <label>Age</label>
+          <input type="number" name='age' placeholder='50'  {...ageRegister}/>
+        </div>
+      </div>
+        
+        <button>Confirm</button>
 
         <div>
           { errors?.height && <p> {errors?.height?.message } </p>}
