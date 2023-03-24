@@ -1,0 +1,70 @@
+.therapy_block {
+    margin: 14px 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+    border-bottom: 1px solid blue;
+}
+
+.therapy_block div {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+.feedback_block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tip_block {
+    margin: 25px 0;
+}
+
+.feedback_block :nth-child(2) {
+    border: 1px solid transparent;
+    padding: 10px;
+    border-radius: 50px;
+    background: linear-gradient(to right,rgb(214, 44, 149), blue);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.therapy_img {
+    width: 50%;
+    position: relative;
+}
+
+.therapy_img div {
+    display: flex;
+    justify-content: end;
+    padding-right: 7px;
+    font-size: 14px;
+
+}
+
+.therapy_img img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 15px;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+}
+
+.massage {
+    background-color: rgb(136, 180, 69);
+}
+
+.drugs {
+    background-color: orange;  
+    padding-right: 10p;
+}

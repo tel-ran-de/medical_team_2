@@ -1,0 +1,22 @@
+.start_page {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+p {
+    text-align: start;
+    font-size: 13px;
+    font-weight: 700;  
+    margin: 25px 0;      
+}
+
+a {
+    text-decoration: none;
+ }
+
+

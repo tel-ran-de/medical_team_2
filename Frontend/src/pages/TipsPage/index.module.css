@@ -1,0 +1,27 @@
+.score, .bmi {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bmi p {
+    font-size: 20px;
+}
+
+.score p {
+    font-size: 20px;
+}
+
+.tips_title {
+    margin: 20px auto;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(11, 86, 207); 
+}
+
+
+
+
+

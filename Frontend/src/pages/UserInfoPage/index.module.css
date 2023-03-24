@@ -1,0 +1,22 @@
+.btn {
+    padding: 12px 15px;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    color: white;
+    font-size: 18px;
+    font-weight: 500; 
+    background-color: #0077F5;
+}
+
+.therapy_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.btn_conteiner {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
