@@ -19,8 +19,9 @@ function App() {
   const [checked, setChecked ] = useState(false);
   const [ answers, setAnswers ] = useState([]);
   const [ bmi, setBmi ] = useState([]);
-  // const [userData, setUserData] = useState([]);
-  const [response, setResponse] = useState([]);
+  const [ therapy, setTherapy ] = useState([]);
+  const [ description, setDescription ] = useState([]);
+  const [ response, setResponse ] = useState([]);
 
   const toggleBodyArea = (title) => {
     if (bodyArea.includes(title)) {
@@ -37,7 +38,7 @@ function App() {
         user_body_areas: bodyArea,
         user_answers: answers,
         user_bmi: bmi,
-        // user_therapy: therapy,
+        user_therapy: therapy,
         // user_description: description,
       }
       console.log(userData);
@@ -50,7 +51,7 @@ function App() {
 
   return (
     <div>
-      <Context.Provider value={{bodyArea, setBodyArea, toggleBodyArea, checked, answers, setAnswers, collectUserDataForRequest, response, questions}}>
+      <Context.Provider value={{bodyArea, setBodyArea, toggleBodyArea, checked, answers, setAnswers, collectUserDataForRequest, bmi, setBmi, therapy, setTherapy, description, setDescription, response, questions}}>
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<StartPage />} />

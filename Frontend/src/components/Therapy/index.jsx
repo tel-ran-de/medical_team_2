@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import s from './index.module.css';
 import red from '../../media/red.jfif';
 import yellow from '../../media/yellow.jfif';
 import green from '../../media/green.jfif';
+import { Context } from '../../context';
 
 export default function Therapy({ therapy_name }) {
 
-const addTherapy = (event) => {
+  const { therapy, setTherapy } = useContext(Context);
 
-};
+  const addTherapy = (event) => {
+    event.preventDefault();
+    let target = event.target;
+    while (target.tagName.toLowerCase() !== "button") {
+    target = target.parentNode;
+    }
 
+    const answer = {
+      therapy: therapy_name,
+      reaction: target.value
+    };
+    console.log(answer)
+    setTherapy([...therapy, answer])
+  };
+
+  console.log(therapy)
 
   return (
     <div>
