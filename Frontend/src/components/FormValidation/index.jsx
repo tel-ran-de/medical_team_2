@@ -1,22 +1,26 @@
 import React from 'react';
-import { useState } from 'react';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { Context } from '../../context';
+import s from './index.module.css';
 
 export default function FormValidation() {
 
-const [ userParams, setUserParams ] = useState([]);
+const { bmi, setBmi } = useContext(Context);
 
-// const createNewUser = user => {
-//     setUser(prev => user)
-//   };
+const addAnswer = (params) => {
+  setBmi(params);     
+}  
+
+const submit = (data) => {
+  addAnswer(data)
+}
+
+console.log(bmi);
 
 const { register, handleSubmit, formState: { errors }} = useForm({
     mode: 'onBlur'
 });
-
-const submit = data => {
-    console.log(data)
-}
 
 const heightRegex = /^\d{2,3}$/;
 const weightRegex = /^\d{1,3}$/;
@@ -48,10 +52,22 @@ const ageRegister = register('age', {
 
   return (
     <form onSubmit={handleSubmit(submit)}>
-        <input type="number" name='height' placeholder='175' {...heightRegister}/>
-        <input type="number" name='weight' placeholder='85' {...weightRegister}/>
-        <input type="number" name='age' placeholder='50'  {...ageRegister}/>
-        <button>Add user</button>
+      <div className={s.input_container}>
+        <div className={s.input_box}>
+          <label>Height</label>
+          <input type="number" name='height' placeholder='175' {...heightRegister}/>
+        </div>
+        <div className={s.input_box}>
+          <label>Weight</label>
+          <input type="number" name='weight' placeholder='85' {...weightRegister}/>
+        </div>
+        <div className={s.input_box}>
+          <label>Age</label>
+          <input type="number" name='age' placeholder='50'  {...ageRegister}/>
+        </div>
+      </div>
+        
+        <button>Confirm</button>
 
         <div>
           { errors?.height && <p> {errors?.height?.message } </p>}

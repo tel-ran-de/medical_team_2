@@ -1,5 +1,5 @@
 export const postUserData = (body, callback) => {
-    fetch('https://api.escuelajs.co/api/v1/products/', {
+    fetch('http://localhost:8080/health/result', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
