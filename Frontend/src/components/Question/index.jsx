@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { questions } from './data/questions.js';
 import s from './index.module.css';
-import { BiArrowBack } from 'react-icons/bi'
 import Button from '../Button/index.jsx';
 import { Context } from '../../context';
 import red from '../../media/red.jfif';

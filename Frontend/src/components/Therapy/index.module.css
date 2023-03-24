@@ -1,0 +1,41 @@
+.therapy_block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.therapy {
+    width: 95px;
+    height: 40px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-color: rgb(243, 239, 239);
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #105196;
+    /* color: #0077F5; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.smile_block {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.smile_block button {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+}
+
+.smile_block img {
+    width: 40px;
+    height: 40px;
+    z-index: -1;
+}

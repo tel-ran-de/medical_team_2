@@ -7,3 +7,10 @@
     font-weight: 500; 
     background-color: #0077F5;
 }
+
+.therapy_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
