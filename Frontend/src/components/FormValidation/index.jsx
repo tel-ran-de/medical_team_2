@@ -17,7 +17,7 @@ const submit = (data) => {
   addAnswer(data)
 }
 
-// console.log(bmi);
+console.log(bmi);
 
 const { register, handleSubmit, formState: { errors }} = useForm({
     mode: 'onBlur'

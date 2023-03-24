@@ -67,7 +67,7 @@ export default function Question() {
         }
 
         <div className={s.num_question}>{questions[questionNum].id}</div>
-        {/* <img src="" alt=""  /> */}
+        <img src={`https://counter1px.herokuapp.com/?q=${questionNum}`} alt="" className={s.analitica}  />
         <p>{questions[questionNum].question}</p>
         </div>
       <div className={s.answers_block}>
