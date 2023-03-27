@@ -7,19 +7,17 @@ import com.example.health_checker.service.CountingService;
 import com.example.health_checker.service.ParsingService;
 import com.example.health_checker.service.StoryService;
 import com.example.health_checker.service.StoryTherapyService;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.RequiredArgsConstructor;
-import org.json.JSONArray;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 import static org.springframework.http.HttpStatus.OK;
-
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/health")
 public class StoryController {
 
     private final CountingService countingService;
@@ -29,14 +27,14 @@ public class StoryController {
 
     @PostMapping("/pain-source")
     @ResponseStatus(OK)
-    public void chooseBodyPart(@RequestParam BodyPart bodyPart) {
+    public void chooseBodyPart(@RequestBody BodyPart bodyPart) {
         storyService.chooseBodyPart(bodyPart);
     }
 
     @GetMapping("/story")
     @ResponseStatus(OK)
-    public void createStory(@RequestBody JSONArray jsonArray) {
-        parsingService.parseJSONArray(jsonArray);
+    public void createStory(@RequestBody String jsonArray) {
+        parsingService.parseJSONObject(jsonArray);
     }
     @GetMapping("/therapy")
     @ResponseStatus(OK)
@@ -49,14 +47,12 @@ public class StoryController {
         storyService.describeProblem(problem, id);
     }
 
-    @GetMapping("/result")
+    @PostMapping("/#/tips")
     @ResponseStatus(OK)
-    public String getIndexResult(@RequestBody JSONArray jsonArray,
-                                 @RequestBody(required = false) Story story,
+    public String getIndexResult(@RequestBody String request,
                                  Model model) {
-        model.addAttribute("scores", countingService.countingScores(jsonArray));
-        model.addAttribute("BMI", countingService.countingBMI(jsonArray));
-        model.addAttribute("therapy", storyTherapyService.getTherapyByParams(story));
-        return "page_result";
+        parsingService.parseJSONObject(request);
+        model.addAttribute("scores", countingService.countingScores(request));
+        return "/#/tips";
     }
 }

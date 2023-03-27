@@ -2,13 +2,14 @@ package com.example.health_checker.service;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.stereotype.Service;
 
-
+/**
+ * the interface describes parsing JsonData
+ */
 public interface ParsingService {
-    void parseJSONArray(JSONArray jsonArray);
 
-    JSONArray getUserBMI(JSONObject jsonObjectBMI, JSONArray jsonArrayBMI);
+
+    void parseJSONObject(String request);
 
     JSONArray getUserAnswers(JSONObject jsonObjectAnswers, JSONArray jsonArrayAnswers);
 }
