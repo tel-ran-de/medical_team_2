@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface StoryParamsRepository extends CrudRepository<StoryParams, String> {
+public interface StoryParamsRepository extends CrudRepository<StoryParams, Integer> {
 
     Optional<StoryParams> findById(int s);
 }

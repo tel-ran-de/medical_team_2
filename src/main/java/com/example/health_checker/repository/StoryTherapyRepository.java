@@ -8,10 +8,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface StoryTherapyRepository extends CrudRepository<StoryTherapy,String> {
+public interface StoryTherapyRepository extends CrudRepository<StoryTherapy,Integer> {
 
     List<StoryTherapy>findAll();
 
-    @Override
-    Optional<StoryTherapy> findById(String s);
+    Optional<StoryTherapy> findById(int s);
 }
